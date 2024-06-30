@@ -139,7 +139,7 @@ elseif($_GET['aksi']=='getmahasiswalulus'){
     $limit = '';
     $offset = '';
     $data_aray = [
-        'act' => 'GetListMahasiswaLulus',
+        'act' => 'GetListMahasiswaLulusDO',
         'token' => $_token,
         'filter' => $filter, 
         'order' => $order, 
