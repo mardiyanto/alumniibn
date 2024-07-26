@@ -7,7 +7,7 @@
     header("location:../login.php?alert=belum_login");
   }
 ///////////////////////////lihat/////////////////////////////////////////////
-if($_GET['aksi']=='getmahasiswa'){
+if ($_GET['aksi'] == 'getmahasiswa') {
     $filter = "";
     $order = '';
     $limit = '';
@@ -24,30 +24,30 @@ if($_GET['aksi']=='getmahasiswa'){
     $dataArray = $datajson->data;
 
     foreach ($dataArray as $d) {
-        $nama_mahasiswa = $d->nama_mahasiswa;
-        $jenis_kelamin = $d->jenis_kelamin;
+        $nama_mahasiswa = $koneksi->real_escape_string($d->nama_mahasiswa);
+        $jenis_kelamin = $koneksi->real_escape_string($d->jenis_kelamin);
         $tanggal_lahir = date('Y-m-d', strtotime($d->tanggal_lahir));
-        $id_perguruan_tinggi = $d->id_perguruan_tinggi;
-        $nipd = $d->nipd;
-        $ipk = $d->ipk;
-        $total_sks = $d->total_sks;
-        $id_sms = $d->id_sms;
-        $id_mahasiswa = $d->id_mahasiswa;
-        $id_agama = $d->id_agama;
-        $nama_agama = $d->nama_agama;
-        $id_prodi = $d->id_prodi;
-        $nama_program_studi = $d->nama_program_studi;
-        $id_status_mahasiswa = $d->id_status_mahasiswa;
-        $nama_status_mahasiswa = $d->nama_status_mahasiswa;
-        $nim = $d->nim;
-        $id_periode = $d->id_periode;
-        $nama_periode_masuk = $d->nama_periode_masuk;
-        $id_registrasi_mahasiswa = $d->id_registrasi_mahasiswa;
-        $id_periode_keluar = $d->id_periode_keluar;
+        $id_perguruan_tinggi = $koneksi->real_escape_string($d->id_perguruan_tinggi);
+        $nipd = $koneksi->real_escape_string($d->nipd);
+        $ipk = $koneksi->real_escape_string($d->ipk);
+        $total_sks = $koneksi->real_escape_string($d->total_sks);
+        $id_sms = $koneksi->real_escape_string($d->id_sms);
+        $id_mahasiswa = $koneksi->real_escape_string($d->id_mahasiswa);
+        $id_agama = $koneksi->real_escape_string($d->id_agama);
+        $nama_agama = $koneksi->real_escape_string($d->nama_agama);
+        $id_prodi = $koneksi->real_escape_string($d->id_prodi);
+        $nama_program_studi = $koneksi->real_escape_string($d->nama_program_studi);
+        $id_status_mahasiswa = $koneksi->real_escape_string($d->id_status_mahasiswa);
+        $nama_status_mahasiswa = $koneksi->real_escape_string($d->nama_status_mahasiswa);
+        $nim = $koneksi->real_escape_string($d->nim);
+        $id_periode = $koneksi->real_escape_string($d->id_periode);
+        $nama_periode_masuk = $koneksi->real_escape_string($d->nama_periode_masuk);
+        $id_registrasi_mahasiswa = $koneksi->real_escape_string($d->id_registrasi_mahasiswa);
+        $id_periode_keluar = $koneksi->real_escape_string($d->id_periode_keluar);
         $tanggal_keluar = date('Y-m-d', strtotime($d->tanggal_keluar));
         $last_update = date('Y-m-d', strtotime($d->last_update));
         $tgl_create = date('Y-m-d', strtotime($d->tgl_create));
-        $status_sync = $d->status_sync;
+        $status_sync = $koneksi->real_escape_string($d->status_sync);
 
         $sql_check = "SELECT COUNT(*) as count FROM mahasiswa WHERE id_mahasiswa = '$id_mahasiswa'";
         $result_check = $koneksi->query($sql_check);
